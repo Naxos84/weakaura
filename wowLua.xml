@@ -16,8 +16,7 @@
 		-->
 		<Environment ignoreCase="no" startFunc="(" stopFunc=")" paramSeparator="," terminal="" additionalWordChar=""/>
 		<!--
-		The following items should be alphabetically ordered.
-		func="yes" means the keyword should be treated as a fuction, and thus can be used in the parameter
+		The following items should be alphabetically ordered. func="yes" means the keyword should be treated as a fuction, and thus can be used in the parameter
 		calltip system. If this is the case, the retVal attribute specifies the return value/type. Any
 		following Param tag specifies a parameter, they must be in order. The name attributes specifies
 		the parameter name.
@@ -27,8 +26,88 @@
 				<Param name="number achievementId" />
 			</Overload>
 		</KeyWord>
+		<KeyWord name="assert" func="yes">
+			<Overload retVal="generic" descr="asserts a value evaluates to true. If it is, returns value, otherwise causes a Lua error to be thrown.">
+				<Param name="generic value" />
+				<Param name="string errormsg (optional)" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="collectgarbage" func="yes">
+			<Overload retVal="void" descr="Forces garbage collection. See collectgarbage([opt[, arg]]) in Lua 5.1" />
+		</KeyWord>
+		<KeyWord name="date" func="yes">
+			<Overload retVal="string" descr="Returns the current date according to the user's machine. See os.date(format, time) in lua 5.1">
+				<Param name="string format" />
+				<Param name="date time" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="difftime" func="yes">
+			<Overload retVal="int" descr="Calculate the number of seconds between time t1 to time t2.">
+				<Param name="time t1" />
+				<Param name="time t2" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="error" func="yes">
+			<Overload retVal="void" descr="Throws an error with the given error message. Use pcall() to catch errors.">
+				<Param name="string errorMessage" />
+				<Param name="? level" />
+			</Overload>
+		</KeyWord>
 		<KeyWord name="GetAccountExpansionLevel" func="yes">
-			<Overload retVal="number" descr="Returns registered expansion. (0=WoW, 1=BC, 2=WotLK, 3=Cata, 4=Mists, 5=Warlords, 6=Legion, 7=BfA) ">
+			<Overload retVal="number" descr="Returns registered expansion. (0=WoW, 1=BC, 2=WotLK, 3=Cata, 4=Mists, 5=Warlords, 6=Legion, 7=BfA) " />
+		</KeyWord>
+		<KeyWord name="next" func="yes">
+			<Overload retVal="key,value" descr="Returns the next key, value pair of the table, allowing you to walk over the table.">
+				<Param name="table table" />
+				<Param name="int index" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pcall" func="yes">
+			<Overload retVal="boolean retOk ret1 ret2 ... retn" descr="Returns a boolean value indicating successful execution of func and the error message or func's results as additional values.">
+				<Param name="function func" />
+				<Param name="arg1" />
+				<Param name="arg2" />
+				<Param name="..." />
+				<Param name="argn" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="rawequal" func="yes">
+			<Overload retVal="boolean" descr="Returns a boolean indicating successful execution of func and calls err on failure, additionally returning func's or err's results.">
+				<Param name="value" />
+				<Param name="value" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="rawget" func="yes">
+			<Overload retVal="generic" descr="Gets the value of a table item without invoking metamethods.">
+				<Param name="table" />
+				<Param name="int index" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="rawset" func="yes">
+			<Overload retVal="void" descr=" Sets the value of a table item without invoking metamethods.">
+				<Param name="table" />
+				<Param name="index" />
+				<Param name="value" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="select" func="yes">
+			<Overload retVal="int items" descr="Returns the number of items in list or a subset of the list beginning at index and running to the end of the list.">
+				<Param name="int index" />
+				<Param name="list list" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="time" func="yes">
+			<Overload retVal="time currentTime" descr="Returns time in seconds since epoch (00:00:00 Jan 1 1970)" />
+		</KeyWord>
+		<KeyWord name="type" func="yes">
+			<Overload retVal="string type" descr="Returns the type of variable as a string, nil, boolean, number, string, table, function, thread or userdata. (The only Lua data types.)">
+				<Param name="var" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="xpcall" func="yes">
+			<Overload retVal="boolean" descr="Returns a boolean indicating successful execution of func and calls err on failure, additionally returning func's or err's results.">
+				<Param name="function func" />
+				<Param name="function error" />
 			</Overload>
 		</KeyWord>
 		<KeyWord name="WA_GetUnitAura" func="yes">
